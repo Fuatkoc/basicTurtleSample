@@ -7,25 +7,39 @@ my_screen.bgcolor("light blue")
 my_screen.title("Catch The Turtle")
 
 #border of area
-ymin,ymax=-200,200
-xmin,xmax=-200,200
+ymin,ymax=-345,345
+xmin,xmax=-345,345
 
+turtle_default=turtle.Turtle()
 turtle1=turtle.Turtle()
 turtle_instance=turtle.Turtle()
+turtle_instance.speed(5)
+turtle_default.speed(5)
 #turtle_instance.color()
+turtle_instance.up()
+turtle_default.up()
+turtle_default.goto(345,345)
+turtle_default.down()
+for i in range(4):
+    turtle_default.right(90)
+    turtle_default.forward(345*2)
+
 
 def forward():
+    """Kaplumbağa sınırı geçerse otomatik olarak geri gider."""
     xnow = turtle_instance.xcor()
     ynow = turtle_instance.ycor()
 
-    turtle_instance.forward(30)
+    # Turtle'ı ileri hareket ettir
+    turtle_instance.forward(10)
+
+    # Yeni pozisyonu kontrol et
     new_x = turtle_instance.xcor()
     new_y = turtle_instance.ycor()
 
-    if not(xmin<= xnow <=xmax and ymin<=ynow <=ymax):
-        turtle_instance.backward(30)
-
-
+    # Eğer X veya Y sınırını geçerse otomatik olarak geri git
+    if new_x < xmin or new_x > xmax or new_y < ymin or new_y > ymax:
+        turtle_instance.backward(10)  # Sınıra çarpınca geri git
 
 def right():
     turtle_instance.right(10)
