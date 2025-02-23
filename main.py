@@ -3,7 +3,7 @@ import random
 from random import randint
 
 
-# Ekranda yazı yazdıran turtle oluştur
+# Ekranda yazı yazdıran turtle oluştug
 pen = turtle.Turtle()
 
 # Yazıyı yazdırmak için fonksiyon
